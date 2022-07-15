@@ -1,10 +1,9 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import searchReducer from "../features/search/searchSlice";
+import displayReducer from "../features/display/displaySlice";
 
 export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
+  reducer: { search: searchReducer, display: displayReducer },
 });
 
 export type AppDispatch = typeof store.dispatch;
