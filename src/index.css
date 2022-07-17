@@ -3,9 +3,51 @@
   padding: 0;
 }
 
+@-webkit-keyframes color-change-5x {
+  0% {
+    background: #edede9;
+  }
+  25% {
+    background: #d6ccc2;
+  }
+  50% {
+    background: #f5ebe0;
+  }
+  75% {
+    background: #e3d5ca;
+  }
+  100% {
+    background: #d5bdaf;
+  }
+}
+
+@keyframes color-change-5x {
+  0% {
+    background: #edede9;
+  }
+  25% {
+    background: #d6ccc2;
+  }
+  50% {
+    background: #f5ebe0;
+  }
+  75% {
+    background: #e3d5ca;
+  }
+  100% {
+    background: #d5bdaf;
+  }
+}
+
 #root {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 100vh;
+}
+
+.color-change-5x {
+  -webkit-animation: color-change-5x 60s infinite alternate both;
+  animation: color-change-5x 60s infinite alternate both;
 }
