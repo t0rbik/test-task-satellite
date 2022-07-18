@@ -39,6 +39,10 @@
   }
 }
 
+body {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 #root {
   display: flex;
   flex-direction: column;
@@ -50,4 +54,28 @@
 .color-change-5x {
   -webkit-animation: color-change-5x 60s infinite alternate both;
   animation: color-change-5x 60s infinite alternate both;
+}
+
+.defaultBar {
+  min-width: 280px;
+  background-color: #fff;
+  border: 1px solid #000;
+  padding: 6px;
+}
+
+.search-input {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.search-input_element {
+  padding: 6px;
+}
+
+.search-input_button {
+  height: 29px;
+  border: 1px solid #000;
+  padding: 2px;
 }

@@ -15,12 +15,14 @@ export default function Home() {
     navigate(word);
   }
   return (
-    <div className='container'>
+    <div className='defaultBar'>
       <h1>Simple dictionary</h1>
-      <input type='text' id='search-input' value={value} onChange={e => setValue(e.currentTarget.value)}/>
-      <button type='submit' onClick={handleClick}>
-        Search
-      </button>
+      <div className="search-input">
+          <input className="search-input_element" type='text' id='search-input' placeholder="Enter your word" value={value} onChange={e => setValue(e.currentTarget.value)}/>
+          <button className="search-input_button" type='submit' onClick={handleClick}>
+            Search
+          </button>
+      </div>
     </div>
   );
 }
