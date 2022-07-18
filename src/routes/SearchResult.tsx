@@ -1,7 +1,9 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { getDataWord } from "../features/search/searchSlice";
+
+import Description from "./Description";
 
 export default function SearchResult() {
   let params = useParams();
@@ -15,7 +17,8 @@ export default function SearchResult() {
     <div className="container">
       <h1>The word {params.word}</h1>
       {isLoading === 'loading' ? <h2>I'm loading</h2> : null}
-      {dataWord ? <p>{dataWord[0].word}</p> : null}
+      {isLoading === 'failed' && <Navigate to="/not-found" replace={true}/>}
+      {dataWord ? <Description data={dataWord[0]}/> : null}
     </div>
   );
 }

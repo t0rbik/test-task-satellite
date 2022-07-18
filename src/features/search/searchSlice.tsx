@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
+import {RootObject} from "./apiResponseJSON";
 
 type Loader = "not loading" | "loading" | "success" | "failed";
 interface SearchState {
     searchWord: string,
-    dataWord: Array<any> | null,
+    dataWord: Array<RootObject> | null,
     isLoading: Loader;
 }
 

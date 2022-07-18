@@ -7,6 +7,7 @@ export default function Home() {
   let [ value, setValue ] = useState("");
   let navigate = useNavigate();
   let dispatch = useAppDispatch();
+  
   function handleClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     e.preventDefault();
     dispatch(searchSlice.actions.newSearchWord(value));
