@@ -1,11 +1,11 @@
-import { NextUIProvider } from "@nextui-org/react";
-import { Routes, Route } from "react-router-dom";
+import { NextUIProvider } from '@nextui-org/react';
+import { Routes, Route } from 'react-router-dom';
 
-import Home from "./routes/Home";
-import SearchResult from "./routes/SearchResult";
-import NotFound from "./routes/NotFound";
+import Home from './routes/Home';
+import SearchResult from './routes/SearchResult';
+import NotFound from './routes/NotFound';
 
-import "./App.css";
+import './App.css';
 
 function App() {
   return (
