@@ -2,8 +2,9 @@ import { useEffect } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { getDataWord } from "../features/search/searchSlice";
+import { Text, Loading } from "@nextui-org/react";
 
-import Description from "./Description";
+import Description from "../Components/Description";
 
 export default function SearchResult() {
   let params = useParams();
@@ -14,9 +15,9 @@ export default function SearchResult() {
   }, [params])
 
   return (
-    <div className="container">
-      <h1>The word {params.word}</h1>
-      {isLoading === 'loading' ? <h2>I'm loading</h2> : null}
+    <div className="defaultBar">
+      <Text h1>{params.word}</Text>
+      {isLoading === 'loading' ? <Loading size="lg" type="points"/> : null}
       {isLoading === 'failed' && <Navigate to="/not-found" replace={true}/>}
       {dataWord ? <Description data={dataWord[0]}/> : null}
     </div>
