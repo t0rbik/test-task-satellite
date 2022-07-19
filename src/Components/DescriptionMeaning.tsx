@@ -1,17 +1,18 @@
 import { Card, Text } from '@nextui-org/react';
 import { Meaning } from '../features/search/apiResponseJSON';
 
-interface myPropsMeaning {
+interface MyPropsMeaning {
   meaning: Meaning;
 }
 
-const DescriptionMeaning: React.FC<myPropsMeaning> = (props: myPropsMeaning) => {
+const DescriptionMeaning: React.FC<MyPropsMeaning> = (props: MyPropsMeaning) => {
   const partOfSpeech = props.meaning.partOfSpeech;
   const definitions = props.meaning.definitions;
-  function showSynAnt(type: string, list: string[]): JSX.Element[] | undefined {
+  function showSynAnt(type: string, list: string[]): JSX.Element[] | null {
     if (list.length > 0) {
       return list.map((each, key) => <li key={`${type}-${key}`}>{each}</li>);
     }
+    return null;
   }
   return (
     <Card variant="bordered" css={{ p: '16px' }}>

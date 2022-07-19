@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Input, Text, Button } from '@nextui-org/react';
 import { useAppDispatch } from '../app/hooks';
@@ -16,6 +16,9 @@ export default function Home() {
     setValue('');
     navigate(word);
   }
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setValue(e.currentTarget.value);
+  }
   return (
     <div className="defaultBar">
       <Text h1>Simple dictionary</Text>
@@ -26,7 +29,7 @@ export default function Home() {
           color="secondary"
           placeholder="Enter your word"
           value={value}
-          onChange={(e) => setValue(e.currentTarget.value)}
+          onChange={handleChange}
         />
         <Button size="lg" auto flat bordered color="primary" onClick={handleClick}>
           Search

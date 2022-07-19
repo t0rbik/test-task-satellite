@@ -42,7 +42,7 @@ export const searchSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getDataWord.pending, (state, action) => {
+      .addCase(getDataWord.pending, (state) => {
         state.isLoading = 'loading';
         return state;
       })
@@ -51,7 +51,7 @@ export const searchSlice = createSlice({
         state.dataWord = action.payload;
         return state;
       })
-      .addCase(getDataWord.rejected, (state, action) => {
+      .addCase(getDataWord.rejected, (state) => {
         state.isLoading = 'failed';
         state.dataWord = null;
         return state;

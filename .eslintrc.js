@@ -32,6 +32,8 @@ module.exports = {
     'max-len': ['error', 100, 2, { ignoreUrls: true }], // airbnb позволяет некоторые пограничные случаи
     'no-alert': 'error', // airbnb использует предупреждение
     'no-param-reassign': 'off', // Это - не наш стиль?
+    indent: 'off',
+    '@typescript-eslint/indent': ['error'],
     radix: 'off', // parseInt, parseFloat и radix выключены. Мне это не нравится.
     'react/require-default-props': 'off', // airbnb использует уведомление об ошибке
     'react/forbid-prop-types': 'off', // airbnb использует уведомление об ошибке
@@ -51,6 +53,12 @@ module.exports = {
         },
       },
     ], // для ошибки вложенных свойств htmlFor элементов label
-    'prettier/prettier': ['error'],
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
+    'import/no-named-as-default': 0,
   },
 };
