@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, Input, Text, Button } from '@nextui-org/react';
+import { Container, Input, Text, Button, FormElement } from '@nextui-org/react';
 import { useAppDispatch } from '../app/hooks';
 import { searchSlice } from '../features/search/searchSlice';
 
@@ -34,7 +34,7 @@ export default function Home() {
   );
 
   const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
+    (e: ChangeEvent<FormElement>) => {
       setValue(e.currentTarget.value);
     },
     [setValue],
