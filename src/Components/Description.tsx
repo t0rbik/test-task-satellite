@@ -1,31 +1,33 @@
-import { Card, Text, Spacer, Link } from '@nextui-org/react';
+import { Card, Text, Spacer, Link, Container } from '@nextui-org/react';
 import { RootObject } from '../features/search/apiResponseJSON';
 
+import Phonetics from './Phonetics';
 import DescriptionMeaning from './DescriptionMeaning';
 
-interface MyPropsDescription {
+interface MyProps {
   data: RootObject;
 }
 
-const Description: React.FC<MyPropsDescription> = (props: MyPropsDescription) => {
-  const data = props.data;
+export default function Description(props: MyProps) {
+  const { data } = props;
   return (
-    <div style={{ minWidth: '280px' }}>
-      <Text h3>Phonetics of the word</Text>
-      <Text>Transcription: {data.phonetic}</Text>
-      <Text h3>Learn pronunciation</Text>
-      <Text>{data.phonetics[1].text}</Text>
-      <audio src={data.phonetics[1].audio} controls />
-      {data.meanings.map((each, key) => (
-        <DescriptionMeaning meaning={each} key={`meaning-${key}`} />
-      ))}
+    <Container fluid>
+      <Phonetics data={data} />
+      <div className="descriptions">
+        {data.meanings.map((each) => (
+          <DescriptionMeaning
+            meaning={each}
+            key={each.partOfSpeech + Math.floor(Math.random() * 999 + 1)}
+          />
+        ))}
+      </div>
       <Spacer y={1} />
       <Card variant="flat" css={{ p: '16px' }}>
         <Text h4>Sources</Text>
         <ul>
           {data.sourceUrls.map((each, key) => {
             return (
-              <li key={`src-link-${key}`}>
+              <li key={each}>
                 <Link href={each}>Source {key + 1}</Link>
               </li>
             );
@@ -37,8 +39,6 @@ const Description: React.FC<MyPropsDescription> = (props: MyPropsDescription) =>
         <Text h4>License</Text>
         <Link href={data.license.url}>{data.license.name}</Link>
       </Card>
-    </div>
+    </Container>
   );
-};
-
-export default Description;
+}

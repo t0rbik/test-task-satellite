@@ -1,4 +1,5 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+/* eslint-disable @typescript-eslint/indent */
+import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import searchReducer from '../features/search/searchSlice';
 
 export const store = configureStore({
