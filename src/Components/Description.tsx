@@ -33,9 +33,6 @@ export default function Description(props: MyProps) {
             );
           })}
         </ul>
-      </Card>
-      <Spacer y={1} />
-      <Card variant="flat" css={{ p: '16px' }}>
         <Text h4>License</Text>
         <Link href={data.license.url}>{data.license.name}</Link>
       </Card>

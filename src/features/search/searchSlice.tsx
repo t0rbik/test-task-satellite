@@ -25,7 +25,6 @@ export const getDataWord = createAsyncThunk(
       return await response.json();
     } catch (e) {
       // catch close type MUST BE any or unknown if specified so I'm not specifying
-      console.log(e);
       return Promise.reject();
     }
   },
@@ -37,6 +36,10 @@ export const searchSlice = createSlice({
   reducers: {
     newSearchWord: (state, action: PayloadAction<string>) => {
       state.searchWord = action.payload;
+      return state;
+    },
+    restoreIninitalState: (state) => {
+      state.isLoading = 'not loading';
       return state;
     },
   },

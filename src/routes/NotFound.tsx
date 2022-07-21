@@ -1,8 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import { Text, Button, Container } from '@nextui-org/react';
+import { useAppDispatch } from '../app/hooks';
+import { searchSlice } from '../features/search/searchSlice';
 
 export default function NotFound() {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   return (
     <Container>
       <div className="defaultBar">
@@ -13,6 +16,7 @@ export default function NotFound() {
           light
           color="secondary"
           onClick={() => {
+            dispatch(searchSlice.actions.restoreIninitalState());
             navigate('/');
           }}
         >
